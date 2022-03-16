@@ -8,11 +8,12 @@ const ImageContainer = styled.div`
   height: 70%;
   min-width: 700px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   flex: 3;
   margin: 10px;
   padding: 30px;
   background-color: #9bac9b;
+
 `;
 const ImagePanel = styled.div`
   display: flex;
@@ -77,7 +78,7 @@ function Slider() {
   }, [])
 
   return (
-    <ImagePanel>
+    <ImageContainer>
       <WhiteColorDiv>
         <b>
           Images
