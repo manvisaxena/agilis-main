@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ImageLoginUrls, ImageLogoutUrls } from '../resources/ImageUrls';
+import getAllImages from '../utilities/getAllImages';
 
 const ImageContainer = styled.div`
   width: 50%;
@@ -46,7 +47,8 @@ const WhiteColorDiv = styled.div`
 
 function Slider() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [allImages, setAllImages] = useState([]);
+  const [allImages, setAllImages] = useState(getAllImages());
+
   // Clicking next button
   const nextImageClick = () => {
     if(!allImages){
@@ -72,10 +74,6 @@ function Slider() {
       alert('No more images');
     }
   }
-
-  useEffect(() => {
-    setAllImages(ImageLoginUrls);
-  }, [])
 
   return (
     <ImageContainer>
