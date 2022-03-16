@@ -9,22 +9,25 @@ const ImageContainer = styled.div`
   flex: 3;
   margin: 10px;
   padding: 30px;
+  background-color: #9bac9b;
 
 `;
 const ImagePanel = styled.div`
-  // width: 50%;
-  // height: 70%;
-  // min-width: 700px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  // flex: 3;
-  margin: 5px;
+  height: 90%;
+  // margin: 5px;
   // padding: 30px;
-  background-color: #9bac9b;
+
 `;
 const Img= styled.img`
   min-width: 150px;
   min-height: 200px;
+  // display: flex;
+  height: 100%;
+  position: relative;
+
 `;
 const Button= styled.button`
   background-color: #9bac9b;
