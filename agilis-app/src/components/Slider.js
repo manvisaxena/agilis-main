@@ -48,12 +48,14 @@ const WhiteColorDiv = styled.div`
 function Slider() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [allImages, setAllImages] = useState(getAllImages());
+  let timer1;
 
   // Clicking next button
   const nextImageClick = () => {
     if(!allImages){
       return;
     }
+    clearTimeout(timer1);
     // increase Index when next clicked else Alert
     if(allImages.length > currentImageIndex+1){
       setCurrentImageIndex(currentImageIndex+1);
@@ -67,6 +69,7 @@ function Slider() {
     if(!allImages){
       return;
     }
+    clearTimeout(timer1);
      // decrease Index when prev clicked else Alert
     if(0 <= currentImageIndex-1){
       setCurrentImageIndex(currentImageIndex-1);
@@ -74,6 +77,22 @@ function Slider() {
       alert('No more images');
     }
   }
+
+  useEffect(()=>{
+    timer1= setTimeout(() => nextImageClick(), 3000);
+  }, [])
+  useEffect(
+    () => {
+      if(allImages.length > currentImageIndex+1){
+        timer1= setTimeout(() => nextImageClick(), 3000);
+      } else {
+        return () => {
+          clearTimeout(timer1);
+        };
+      }
+    },
+    [currentImageIndex],
+  );
 
   return (
     <ImageContainer>
